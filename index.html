@@ -667,9 +667,11 @@
                                     type="text"
                                     id="nombre"
                                     name="nombre"
-                                    placeholder="Escribe tu nombre"
+                                    placeholder="Escribe tu nombre completo"
+                                    inputmode="text"
                                     autocomplete="name"
                                     maxlength="80"
+                                    pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+"
                                     aria-describedby="errorNombre"
                                     required
                                 >
@@ -715,8 +717,9 @@
                                     name="edad"
                                     placeholder="Tu edad"
                                     inputmode="numeric"
-                                    min="5"
-                                    max="120"
+                                    autocomplete="off"
+                                    maxlength="3"
+                                    pattern="[0-9]+"
                                     aria-describedby="errorEdad"
                                     required
                                 >
@@ -753,9 +756,10 @@
                                     id="telefono"
                                     name="telefono"
                                     placeholder="Ej. 5555 5555"
-                                    inputmode="tel"
+                                    inputmode="numeric"
                                     autocomplete="tel"
-                                    maxlength="24"
+                                    maxlength="9"
+                                    pattern="[0-9]{4}-[0-9]{4}"
                                     aria-describedby="errorTelefono"
                                     required
                                 >

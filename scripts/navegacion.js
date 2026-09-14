@@ -232,28 +232,6 @@ function activarTeclado() {
    cuando conectemos Google Sheets.
 */
 
-function protegerFormularioTemporalmente() {
-    const formulario = document.querySelector(
-        "#formularioContacto"
-    );
-
-    const estado = document.querySelector(
-        "#estadoFormulario"
-    );
-
-    if (!formulario) {
-        return;
-    }
-
-    formulario.addEventListener("submit", (evento) => {
-        evento.preventDefault();
-
-        if (estado) {
-            estado.textContent =
-                "El envío se habilitará al conectar la hoja de cálculo.";
-        }
-    });
-}
 
 
 /* ==================================================
@@ -264,7 +242,6 @@ function iniciarNavegacion() {
     prepararPantallas();
     activarBotones();
     activarTeclado();
-    protegerFormularioTemporalmente();
 }
 
 if (document.readyState === "loading") {
