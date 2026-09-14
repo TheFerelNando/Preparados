@@ -4,7 +4,7 @@
 
 .pantalla-oracion {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     padding:
@@ -326,43 +326,6 @@
     font-weight: 600;
 }
 
-
-/* ==================================================
-   INDICACIÓN PARA EL USUARIO
-================================================== */
-
-.indicacion-oracion {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.55rem;
-
-    margin: 1.25rem auto 0;
-    padding: 0.55rem 1rem;
-
-    border: 1px solid rgba(243, 199, 95, 0.22);
-    border-radius: var(--radio-redondo);
-
-    color: var(--color-texto-suave);
-    background-color: rgba(3, 9, 20, 0.46);
-
-    font-family: var(--fuente-interfaz);
-    font-size: 0.82rem;
-    line-height: 1.35;
-}
-
-.indicacion-oracion::before {
-    content: "";
-
-    width: 0.45rem;
-    height: 0.45rem;
-
-    border-radius: 50%;
-
-    background-color: var(--color-dorado);
-
-    box-shadow: 0 0 0.8rem rgba(243, 199, 95, 0.7);
-}
 
 
 /* ==================================================
