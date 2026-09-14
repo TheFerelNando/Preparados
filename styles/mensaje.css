@@ -1,0 +1,677 @@
+/* ==================================================
+   SEGUNDA PANTALLA: MENSAJE DE SALVACIÓN
+================================================== */
+
+.pantalla-mensaje {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding:
+        max(6.5rem, env(safe-area-inset-top))
+        clamp(1.25rem, 4vw, 3rem)
+        max(5rem, env(safe-area-inset-bottom));
+
+    color: var(--color-blanco);
+    background-color: var(--color-fondo);
+
+    background-image:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(255, 215, 113, 0.18) 0%,
+            rgba(226, 160, 47, 0.06) 25%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(232, 168, 54, 0.18) 0%,
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            #071525 0%,
+            #030914 48%,
+            #07111d 100%
+        );
+}
+
+
+/* ==================================================
+   DECORACIÓN DEL FONDO
+================================================== */
+
+.pantalla-mensaje::before,
+.pantalla-mensaje::after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+
+    width: 28rem;
+    height: 22rem;
+
+    border-radius: 50%;
+    opacity: 0.25;
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+.pantalla-mensaje::before {
+    top: 16%;
+    left: -18rem;
+
+    background:
+        radial-gradient(
+            circle at 65% 40%,
+            #4b5e73 0 18%,
+            transparent 19%
+        ),
+        radial-gradient(
+            circle at 52% 62%,
+            #263b50 0 25%,
+            transparent 26%
+        );
+}
+
+.pantalla-mensaje::after {
+    right: -18rem;
+    bottom: 10%;
+
+    background:
+        radial-gradient(
+            circle at 35% 45%,
+            #806637 0 18%,
+            transparent 19%
+        ),
+        radial-gradient(
+            circle at 48% 65%,
+            #3a4655 0 25%,
+            transparent 26%
+        );
+}
+
+
+/* ==================================================
+   LUZ SUPERIOR
+================================================== */
+
+.luz-superior-segunda {
+    position: absolute;
+    z-index: -1;
+
+    top: 0;
+    left: 50%;
+
+    width: min(86vw, 32rem);
+    height: 12rem;
+
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(255, 250, 214, 0.68) 0%,
+        rgba(255, 216, 112, 0.25) 16%,
+        rgba(255, 183, 53, 0.08) 35%,
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+.luz-superior-segunda::before {
+    content: "";
+    position: absolute;
+
+    top: -1.5rem;
+    left: 50%;
+
+    width: 0.28rem;
+    height: 7.5rem;
+
+    transform: translateX(-50%);
+    border-radius: var(--radio-redondo);
+
+    background: linear-gradient(
+        90deg,
+        #d6a63c,
+        #fff7d1 45%,
+        #ffffff 50%,
+        #fff7d1 55%,
+        #d6a63c
+    );
+
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.9),
+        0 0 18px rgba(255, 213, 112, 0.65);
+}
+
+.luz-superior-segunda::after {
+    content: "";
+    position: absolute;
+
+    top: 1.4rem;
+    left: 50%;
+
+    width: 5rem;
+    height: 0.25rem;
+
+    transform: translateX(-50%);
+    border-radius: var(--radio-redondo);
+
+    background: linear-gradient(
+        180deg,
+        #d6a63c,
+        #ffffff 50%,
+        #d6a63c
+    );
+
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.9),
+        0 0 18px rgba(255, 213, 112, 0.65);
+}
+
+
+/* ==================================================
+   CONTENIDO PRINCIPAL
+================================================== */
+
+.contenido-mensaje {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 54rem);
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   CABECERA
+================================================== */
+
+.cabecera-mensaje {
+    max-width: 50rem;
+    margin: 0 auto 2.75rem;
+}
+
+.cabecera-mensaje .etiqueta-seccion {
+    margin-bottom: 0.9rem;
+}
+
+.cabecera-mensaje h2 {
+    max-width: 48rem;
+    margin: 0 auto;
+
+    color: var(--color-blanco);
+
+    font-size: clamp(3.4rem, 6.5vw, 5.8rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+
+    text-wrap: balance;
+}
+
+.cabecera-mensaje h2 span {
+    display: block;
+
+    color: var(--color-dorado);
+
+    text-shadow:
+        0 0 24px rgba(243, 199, 95, 0.2),
+        0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.descripcion-mensaje {
+    max-width: 42rem;
+    margin: 0 auto;
+
+    color: var(--color-texto);
+
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+    line-height: 1.5;
+
+    text-wrap: balance;
+}
+
+
+/* ==================================================
+   LISTA DE TARJETAS
+================================================== */
+
+.lista-mensaje {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+
+    width: 100%;
+    margin-inline: auto;
+}
+
+
+/* ==================================================
+   TARJETAS
+================================================== */
+
+.tarjeta-mensaje {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.2rem, 3vw, 2rem);
+
+    min-height: 10rem;
+    margin: 0;
+    padding: 1.5rem clamp(1.4rem, 4vw, 2.4rem);
+
+    overflow: hidden;
+
+    border: 1px solid rgba(243, 199, 95, 0.44);
+    border-radius: var(--radio-medio);
+
+    background-color: rgba(7, 20, 35, 0.84);
+
+    background-image: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.04),
+        transparent 58%
+    );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 16px 34px rgba(0, 0, 0, 0.22);
+
+    text-align: left;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        transform var(--transicion-rapida),
+        border-color var(--transicion-rapida),
+        box-shadow var(--transicion-rapida);
+}
+
+.tarjeta-mensaje::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 8rem;
+    height: 8rem;
+
+    border-radius: 0 0 0 100%;
+
+    background: radial-gradient(
+        circle at 100% 0%,
+        rgba(243, 199, 95, 0.11),
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+.tarjeta-mensaje:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(255, 224, 143, 0.72);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 26px rgba(218, 158, 44, 0.08);
+}
+
+
+/* ==================================================
+   ÍCONOS
+================================================== */
+
+.icono-mensaje {
+    display: grid;
+    place-items: center;
+
+    width: clamp(5.5rem, 9vw, 6.5rem);
+    aspect-ratio: 1;
+
+    border: 1px solid rgba(255, 222, 137, 0.76);
+    border-radius: 50%;
+
+    background-color: rgba(243, 199, 95, 0.04);
+
+    background-image: radial-gradient(
+        circle,
+        rgba(255, 219, 125, 0.16),
+        transparent 68%
+    );
+
+    box-shadow:
+        inset 0 0 1.4rem rgba(255, 203, 82, 0.09),
+        0 0 1.3rem rgba(255, 194, 62, 0.09);
+}
+
+.icono-mensaje svg {
+    width: 52%;
+    height: 52%;
+
+    overflow: visible;
+}
+
+
+/* Primer ícono: corazón */
+
+.tarjeta-mensaje:nth-child(1)
+.icono-mensaje svg path {
+    fill: var(--color-dorado);
+    stroke: none;
+}
+
+
+/* Segundo ícono: corazón roto */
+
+.tarjeta-mensaje:nth-child(2)
+.icono-mensaje svg path {
+    fill: none;
+
+    stroke: var(--color-dorado);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.tarjeta-mensaje:nth-child(2)
+.icono-mensaje svg .linea-interior {
+    stroke-width: 4;
+}
+
+
+/* Tercer ícono: cruz */
+
+.tarjeta-mensaje:nth-child(3)
+.icono-mensaje svg path {
+    fill: var(--color-dorado);
+
+    stroke: var(--color-dorado);
+    stroke-width: 1;
+    stroke-linejoin: round;
+}
+
+
+/* Cuarto ícono: persona arrodillada */
+
+.tarjeta-mensaje:nth-child(4)
+.icono-mensaje svg circle {
+    fill: var(--color-dorado);
+    stroke: none;
+}
+
+.tarjeta-mensaje:nth-child(4)
+.icono-mensaje svg path {
+    fill: none;
+
+    stroke: var(--color-dorado);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ==================================================
+   TEXTO DE LAS TARJETAS
+================================================== */
+
+.texto-tarjeta {
+    position: relative;
+    min-width: 0;
+}
+
+.numero-paso {
+    margin: 0 0 0.35rem;
+
+    color: var(--color-dorado);
+
+    font-family: var(--fuente-interfaz);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.texto-tarjeta h3 {
+    margin: 0 0 0.55rem;
+
+    color: var(--color-dorado-claro);
+
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    font-weight: 600;
+    line-height: 1.1;
+
+    text-wrap: balance;
+}
+
+.texto-tarjeta p:last-child {
+    max-width: 38rem;
+    margin: 0;
+
+    color: var(--color-texto-suave);
+
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.5;
+}
+
+
+/* ==================================================
+   BOTÓN INFERIOR
+================================================== */
+
+.boton-siguiente {
+    margin-top: 2.5rem;
+}
+
+
+/* ==================================================
+   BRILLO INFERIOR
+================================================== */
+
+.brillo-inferior-segunda {
+    position: absolute;
+    z-index: -1;
+
+    bottom: -8rem;
+    left: 50%;
+
+    width: min(90vw, 52rem);
+    height: 16rem;
+
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(255, 211, 105, 0.28),
+        rgba(222, 148, 35, 0.08) 38%,
+        transparent 70%
+    );
+
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   TABLETAS
+================================================== */
+
+@media (max-width: 850px) {
+    .pantalla-mensaje {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .contenido-mensaje {
+        width: min(100%, 42rem);
+    }
+
+    .cabecera-mensaje {
+        margin-bottom: 2.2rem;
+    }
+
+    .tarjeta-mensaje {
+        min-height: 9rem;
+    }
+}
+
+
+/* ==================================================
+   TELÉFONOS
+================================================== */
+
+@media (max-width: 600px) {
+    .pantalla-mensaje {
+        padding:
+            max(5.5rem, env(safe-area-inset-top))
+            1rem
+            max(3.5rem, env(safe-area-inset-bottom));
+    }
+
+    .luz-superior-segunda {
+        width: 90vw;
+        height: 8rem;
+    }
+
+    .luz-superior-segunda::before {
+        top: -1.2rem;
+
+        width: 0.22rem;
+        height: 5.4rem;
+    }
+
+    .luz-superior-segunda::after {
+        top: 1rem;
+
+        width: 3.8rem;
+        height: 0.21rem;
+    }
+
+    .cabecera-mensaje {
+        margin-bottom: 1.8rem;
+    }
+
+    .cabecera-mensaje .etiqueta-seccion {
+        font-size: 0.62rem;
+    }
+
+    .cabecera-mensaje h2 {
+        max-width: 23rem;
+
+        font-size: clamp(2.8rem, 13vw, 4rem);
+        line-height: 0.94;
+    }
+
+    .descripcion-mensaje {
+        max-width: 21rem;
+
+        font-size: 1.05rem;
+        line-height: 1.45;
+    }
+
+    .lista-mensaje {
+        gap: 0.9rem;
+    }
+
+    .tarjeta-mensaje {
+        grid-template-columns: 4.4rem minmax(0, 1fr);
+        gap: 1rem;
+
+        min-height: 8.3rem;
+        padding: 1rem;
+
+        border-radius: 1rem;
+    }
+
+    .icono-mensaje {
+        width: 4.4rem;
+    }
+
+    .numero-paso {
+        margin-bottom: 0.22rem;
+
+        font-size: 0.65rem;
+    }
+
+    .texto-tarjeta h3 {
+        margin-bottom: 0.35rem;
+
+        font-size: clamp(1.18rem, 5.2vw, 1.45rem);
+    }
+
+    .texto-tarjeta p:last-child {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .boton-siguiente {
+        margin-top: 1.7rem;
+    }
+}
+
+
+/* ==================================================
+   PANTALLAS MUY ESTRECHAS
+================================================== */
+
+@media (max-width: 370px) {
+    .pantalla-mensaje {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .cabecera-mensaje h2 {
+        font-size: 2.6rem;
+    }
+
+    .tarjeta-mensaje {
+        grid-template-columns: 3.8rem minmax(0, 1fr);
+        gap: 0.8rem;
+
+        min-height: 7.8rem;
+        padding: 0.85rem;
+    }
+
+    .icono-mensaje {
+        width: 3.8rem;
+    }
+
+    .texto-tarjeta h3 {
+        font-size: 1.12rem;
+    }
+
+    .texto-tarjeta p:last-child {
+        font-size: 0.83rem;
+    }
+}
+
+/* ==================================================
+   CORAZÓN ROTO CORREGIDO
+================================================== */
+
+.tarjeta-mensaje:nth-child(2)
+.icono-mensaje
+.forma-corazon-roto {
+    fill: var(--color-dorado);
+    stroke: none;
+}
+
+.tarjeta-mensaje:nth-child(2)
+.icono-mensaje
+.grieta-corazon {
+    fill: none;
+
+    stroke: var(--color-fondo);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}

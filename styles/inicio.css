@@ -1,0 +1,704 @@
+/* ==================================================
+   FONDO DE LA PANTALLA INICIAL
+================================================== */
+
+.pantalla-inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding:
+        max(2rem, env(safe-area-inset-top))
+        clamp(1.25rem, 5vw, 4rem)
+        max(2rem, env(safe-area-inset-bottom));
+
+    color: var(--color-blanco);
+    background-color: var(--color-fondo);
+
+    background-image:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 224, 137, 0.22) 0%,
+            rgba(243, 183, 69, 0.07) 18%,
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(219, 153, 45, 0.23) 0%,
+            transparent 44%
+        ),
+        linear-gradient(
+            180deg,
+            #071525 0%,
+            #030914 55%,
+            #07111d 100%
+        );
+}
+
+
+/* ==================================================
+   NUBES DECORATIVAS
+================================================== */
+
+.pantalla-inicio::before,
+.pantalla-inicio::after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+
+    width: 32rem;
+    height: 18rem;
+
+    border-radius: 50%;
+    opacity: 0.34;
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+.pantalla-inicio::before {
+    top: 16%;
+    left: -18rem;
+
+    background:
+        radial-gradient(
+            circle at 70% 50%,
+            #536579 0 14%,
+            transparent 15%
+        ),
+        radial-gradient(
+            circle at 55% 35%,
+            #34475d 0 20%,
+            transparent 21%
+        ),
+        radial-gradient(
+            circle at 45% 65%,
+            #1c3046 0 25%,
+            transparent 26%
+        );
+}
+
+.pantalla-inicio::after {
+    right: -18rem;
+    bottom: 12%;
+
+    background:
+        radial-gradient(
+            circle at 30% 50%,
+            #736346 0 14%,
+            transparent 15%
+        ),
+        radial-gradient(
+            circle at 45% 35%,
+            #4f5260 0 20%,
+            transparent 21%
+        ),
+        radial-gradient(
+            circle at 55% 65%,
+            #23364a 0 25%,
+            transparent 26%
+        );
+}
+
+
+/* ==================================================
+   CRUZ SUPERIOR
+================================================== */
+
+.pantalla-inicio .resplandor {
+    position: absolute;
+    z-index: -1;
+
+    top: 0;
+    left: 50%;
+
+    width: min(90vw, 28rem);
+    height: 11rem;
+
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        ellipse at 50% 22%,
+        rgba(255, 251, 224, 0.6) 0%,
+        rgba(255, 221, 128, 0.28) 13%,
+        rgba(255, 190, 66, 0.1) 32%,
+        transparent 65%
+    );
+
+    filter: drop-shadow(
+        0 0 22px rgba(255, 200, 84, 0.22)
+    );
+
+    pointer-events: none;
+}
+
+.pantalla-inicio .resplandor::before {
+    content: "";
+    position: absolute;
+
+    top: -0.2rem;
+    left: 50%;
+
+    width: 0.38rem;
+    height: 8.3rem;
+
+    transform: translateX(-50%);
+    border-radius: var(--radio-redondo);
+
+    background: linear-gradient(
+        90deg,
+        #d9a638 0%,
+        #fff1b8 30%,
+        #ffffff 50%,
+        #fff1b8 70%,
+        #d9a638 100%
+    );
+
+    box-shadow:
+        0 0 4px rgba(255, 255, 255, 0.95),
+        0 0 10px rgba(255, 235, 169, 0.75),
+        0 0 22px rgba(255, 190, 61, 0.45);
+}
+
+.pantalla-inicio .resplandor::after {
+    content: "";
+    position: absolute;
+
+    top: 1.9rem;
+    left: 50%;
+
+    width: 7.5rem;
+    height: 0.35rem;
+
+    transform: translateX(-50%);
+    border-radius: var(--radio-redondo);
+
+    background: linear-gradient(
+        180deg,
+        #d9a638 0%,
+        #fff1b8 30%,
+        #ffffff 50%,
+        #fff1b8 70%,
+        #d9a638 100%
+    );
+
+    box-shadow:
+        0 0 4px rgba(255, 255, 255, 0.95),
+        0 0 10px rgba(255, 235, 169, 0.75),
+        0 0 22px rgba(255, 190, 61, 0.45);
+}
+
+
+/* ==================================================
+   ENCABEZADO
+================================================== */
+
+.pantalla-inicio .encabezado {
+    position: absolute;
+    z-index: 3;
+
+    top: clamp(1.5rem, 5vh, 3.5rem);
+    left: clamp(1.25rem, 5vw, 4rem);
+    right: clamp(1.25rem, 5vw, 4rem);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pantalla-inicio .frase {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-family: var(--fuente-interfaz);
+    font-size: clamp(0.65rem, 1.4vw, 0.86rem);
+    line-height: 1.45;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.pantalla-inicio .frase::after {
+    content: "";
+    display: block;
+
+    width: 2rem;
+    height: 1px;
+    margin-top: 0.8rem;
+
+    background-color: var(--color-dorado);
+}
+
+.pantalla-inicio .frase-derecha {
+    text-align: right;
+}
+
+.pantalla-inicio .frase-derecha::after {
+    margin-left: auto;
+}
+
+
+/* ==================================================
+   CONTENIDO PRINCIPAL
+================================================== */
+
+.pantalla-inicio .contenido-principal {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 57rem);
+    margin: 8.5rem auto 10rem;
+
+    text-align: center;
+}
+
+.pantalla-inicio .introduccion {
+    max-width: 42rem;
+    margin: 0 auto 1.1rem;
+
+    color: var(--color-dorado-claro);
+
+    font-family: var(--fuente-interfaz);
+    font-size: clamp(0.72rem, 1.6vw, 0.95rem);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.pantalla-inicio h1 {
+    max-width: 48rem;
+    margin: 0 auto;
+
+    color: var(--color-blanco);
+
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.035em;
+
+    text-wrap: balance;
+}
+
+.pantalla-inicio h1 span {
+    display: block;
+    margin-top: 0.22em;
+
+    color: var(--color-dorado);
+    line-height: 1.02;
+
+    text-shadow:
+        0 0 22px rgba(243, 199, 95, 0.2),
+        0 3px 20px rgba(0, 0, 0, 0.55);
+}
+
+.pantalla-inicio .descripcion {
+    max-width: 38rem;
+    margin: 0 auto;
+
+    color: var(--color-texto);
+
+    font-size: clamp(1rem, 2.1vw, 1.35rem);
+    line-height: 1.5;
+
+    text-wrap: balance;
+}
+
+.pantalla-inicio .boton-principal {
+    margin-top: 2rem;
+}
+
+
+/* ==================================================
+   ILUSTRACIÓN DE LA BIBLIA
+================================================== */
+
+.ilustracion-biblia {
+    position: absolute;
+    z-index: 1;
+
+    bottom: -2.5rem;
+    left: 50%;
+
+    width: min(80vw, 38rem);
+    height: clamp(8rem, 19vw, 12rem);
+
+    transform: translateX(-50%);
+
+    filter: drop-shadow(
+        0 -8px 35px rgba(255, 190, 62, 0.28)
+    );
+}
+
+.ilustracion-biblia::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+
+    left: 50%;
+    bottom: 15%;
+
+    width: 78%;
+    height: 72%;
+
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background-color: rgba(255, 188, 53, 0.25);
+    filter: blur(30px);
+}
+
+.ilustracion-biblia::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    left: 50%;
+    bottom: -0.3rem;
+
+    width: 104%;
+    height: 78%;
+
+    transform: translateX(-50%);
+
+    border: 3px solid #9a6822;
+    border-radius: 1rem 1rem 1.8rem 1.8rem;
+
+    background-color: #281207;
+
+    background-image: linear-gradient(
+        180deg,
+        #4a260e,
+        #1d0d05 75%
+    );
+
+    box-shadow:
+        0 1rem 1.8rem rgba(0, 0, 0, 0.75),
+        inset 0 0 0 2px rgba(245, 187, 69, 0.25);
+}
+
+.ilustracion-biblia .pagina {
+    position: absolute;
+    bottom: 0;
+
+    width: 50%;
+    height: 88%;
+
+    overflow: hidden;
+
+    border: 1px solid #d5a542;
+
+    background-color: #fff3c8;
+
+    background-image:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 255, 255, 0.95),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #fff9df,
+            #e6c881 65%,
+            #b97d25
+        );
+
+    box-shadow:
+        inset 0 -0.7rem 1rem rgba(103, 59, 8, 0.22),
+        0 0.6rem 1rem rgba(0, 0, 0, 0.45);
+}
+
+.ilustracion-biblia .pagina::before {
+    content: "";
+    position: absolute;
+
+    top: 24%;
+    left: 10%;
+
+    width: 80%;
+    height: 58%;
+
+    opacity: 0.35;
+
+    background: repeating-linear-gradient(
+        180deg,
+        #6f5428 0 1px,
+        transparent 1px 6px
+    );
+
+    clip-path: polygon(
+        0 0,
+        44% 0,
+        44% 100%,
+        0 100%,
+        0 0,
+        56% 0,
+        100% 0,
+        100% 100%,
+        56% 100%
+    );
+}
+
+.ilustracion-biblia .pagina::after {
+    content: "SANTA BIBLIA";
+    position: absolute;
+
+    top: 10%;
+    left: 0;
+
+    width: 100%;
+
+    color: #76521c;
+
+    font-family: var(--fuente-titulos);
+    font-size: clamp(0.35rem, 0.8vw, 0.55rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-align: center;
+}
+
+.ilustracion-biblia .pagina-izquierda {
+    left: 0;
+
+    transform:
+        perspective(24rem)
+        rotateY(18deg)
+        rotateZ(2deg);
+
+    transform-origin: right bottom;
+
+    border-radius: 12% 2% 3% 18%;
+}
+
+.ilustracion-biblia .pagina-derecha {
+    right: 0;
+
+    transform:
+        perspective(24rem)
+        rotateY(-18deg)
+        rotateZ(-2deg);
+
+    transform-origin: left bottom;
+
+    border-radius: 2% 12% 18% 3%;
+}
+
+.ilustracion-biblia .centro-biblia {
+    position: absolute;
+    z-index: 3;
+
+    bottom: -0.2rem;
+    left: 50%;
+
+    width: 0.38rem;
+    height: 89%;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        #7f4d0e,
+        #ffe59a,
+        #75420a
+    );
+
+    box-shadow:
+        0 0 0.5rem rgba(58, 27, 2, 0.85),
+        0 0 1rem rgba(255, 202, 83, 0.35);
+}
+
+.ilustracion-biblia .centro-biblia::after {
+    content: "";
+    position: absolute;
+
+    top: 88%;
+    left: 50%;
+
+    width: 0.85rem;
+    height: 4rem;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        #7d160f,
+        #c63a26,
+        #72100c
+    );
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        50% 78%,
+        0 100%
+    );
+}
+
+
+/* ==================================================
+   INDICADOR PARA DESLIZAR
+================================================== */
+
+.pantalla-inicio .indicador-deslizar {
+    position: absolute;
+    z-index: 4;
+
+    bottom: 1.2rem;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+    pointer-events: none;
+}
+
+.pantalla-inicio .indicador-deslizar p {
+    margin: 0.35rem 0 0;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 0.78rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+.pantalla-inicio .chevron {
+    display: block;
+
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: -0.2rem auto;
+
+    transform: rotate(45deg);
+
+    border-right: 2px solid var(--color-dorado-claro);
+    border-bottom: 2px solid var(--color-dorado-claro);
+
+    animation: bajar 1.7s infinite;
+}
+
+.pantalla-inicio .chevron:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+@keyframes bajar {
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: translateY(-3px) rotate(45deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(3px) rotate(45deg);
+    }
+}
+
+
+/* ==================================================
+   TELÉFONOS
+================================================== */
+
+@media (max-width: 600px) {
+    .pantalla-inicio {
+        justify-content: flex-start;
+
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        padding-bottom: 10rem;
+    }
+
+    .pantalla-inicio .encabezado {
+        top: 1.25rem;
+        left: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .pantalla-inicio .frase {
+        font-size: 0.52rem;
+        letter-spacing: 0.14em;
+    }
+
+    .pantalla-inicio .resplandor {
+        width: 82vw;
+        height: 8rem;
+    }
+
+    .pantalla-inicio .resplandor::before {
+        top: -0.2rem;
+
+        width: 0.3rem;
+        height: 6.2rem;
+    }
+
+    .pantalla-inicio .resplandor::after {
+        top: 1.4rem;
+
+        width: 5.5rem;
+        height: 0.28rem;
+    }
+
+    .pantalla-inicio .contenido-principal {
+        margin-top: 9.5rem;
+        margin-bottom: 9rem;
+    }
+
+    .pantalla-inicio .introduccion {
+        max-width: 19rem;
+
+        font-size: 0.65rem;
+        letter-spacing: 0.11em;
+    }
+
+    .pantalla-inicio h1 {
+        max-width: 23rem;
+        font-size: clamp(2.2rem, 10.5vw, 3.5rem);
+    }
+
+    .pantalla-inicio .descripcion {
+        max-width: 22rem;
+
+        font-size: 1.02rem;
+        line-height: 1.45;
+    }
+
+    .pantalla-inicio .boton-principal {
+        margin-top: 1.7rem;
+    }
+
+    .ilustracion-biblia {
+        width: 88vw;
+        bottom: -1.4rem;
+    }
+
+    .pantalla-inicio .indicador-deslizar {
+        display: none;
+    }
+}
+
+
+/* ==================================================
+   PANTALLAS MUY ESTRECHAS
+================================================== */
+
+@media (max-width: 370px) {
+    .pantalla-inicio .frase {
+        font-size: 0.46rem;
+    }
+
+    .pantalla-inicio .contenido-principal {
+        margin-top: 8.8rem;
+    }
+
+    .pantalla-inicio h1 {
+        font-size: 2.15rem;
+    }
+
+    .pantalla-inicio .descripcion {
+        font-size: 0.95rem;
+    }
+
+    .ilustracion-biblia {
+        width: 92vw;
+    }
+}
