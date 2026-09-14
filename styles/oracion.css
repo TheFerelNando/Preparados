@@ -1,0 +1,546 @@
+/* ==================================================
+   CUARTA PANTALLA: HAZ ESTA ORACIÓN
+================================================== */
+
+.pantalla-oracion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        max(5.5rem, env(safe-area-inset-top))
+        clamp(1.25rem, 4vw, 3rem)
+        max(5rem, env(safe-area-inset-bottom));
+
+    color: var(--color-blanco);
+    background-color: var(--color-fondo);
+
+    background-image:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(255, 222, 133, 0.19),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(233, 165, 48, 0.2),
+            transparent 48%
+        ),
+        linear-gradient(
+            180deg,
+            #071525 0%,
+            #030914 52%,
+            #081522 100%
+        );
+}
+
+
+/* ==================================================
+   DECORACIÓN DEL FONDO
+================================================== */
+
+.pantalla-oracion::before,
+.pantalla-oracion::after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pantalla-oracion::before {
+    top: 22%;
+    left: -15rem;
+
+    width: 29rem;
+    height: 24rem;
+
+    background: radial-gradient(
+        circle,
+        rgba(57, 76, 98, 0.28),
+        transparent 68%
+    );
+
+    filter: blur(22px);
+}
+
+.pantalla-oracion::after {
+    right: -15rem;
+    bottom: 12%;
+
+    width: 29rem;
+    height: 24rem;
+
+    background: radial-gradient(
+        circle,
+        rgba(153, 106, 35, 0.2),
+        transparent 68%
+    );
+
+    filter: blur(22px);
+}
+
+
+/* ==================================================
+   LUZ Y CRUZ SUPERIOR
+================================================== */
+
+.luz-superior-oracion {
+    position: absolute;
+    z-index: -1;
+
+    top: 0;
+    left: 50%;
+
+    width: min(90vw, 34rem);
+    height: 12rem;
+
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(255, 250, 218, 0.62),
+        rgba(255, 214, 108, 0.22) 18%,
+        rgba(255, 181, 49, 0.07) 38%,
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+.luz-superior-oracion::before {
+    content: "";
+    position: absolute;
+
+    top: -1.3rem;
+    left: 50%;
+
+    width: 0.26rem;
+    height: 7rem;
+
+    transform: translateX(-50%);
+    border-radius: var(--radio-redondo);
+
+    background: linear-gradient(
+        90deg,
+        #ce9830,
+        #fff6c6 44%,
+        #ffffff 50%,
+        #fff6c6 56%,
+        #ce9830
+    );
+
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.9),
+        0 0 18px rgba(255, 210, 101, 0.62);
+}
+
+.luz-superior-oracion::after {
+    content: "";
+    position: absolute;
+
+    top: 1.3rem;
+    left: 50%;
+
+    width: 4.8rem;
+    height: 0.24rem;
+
+    transform: translateX(-50%);
+    border-radius: var(--radio-redondo);
+
+    background: linear-gradient(
+        180deg,
+        #ce9830,
+        #ffffff 50%,
+        #ce9830
+    );
+
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.9),
+        0 0 18px rgba(255, 210, 101, 0.62);
+}
+
+
+/* ==================================================
+   CONTENIDO PRINCIPAL
+================================================== */
+
+.contenido-oracion {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 58rem);
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   CABECERA
+================================================== */
+
+.cabecera-oracion {
+    max-width: 50rem;
+    margin: 0 auto 2rem;
+}
+
+.cabecera-oracion h2 {
+    max-width: 46rem;
+    margin: 0 auto;
+
+    color: var(--color-blanco);
+
+    font-size: clamp(3rem, 6vw, 5.3rem);
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+
+    text-wrap: balance;
+}
+
+.cabecera-oracion h2 span {
+    display: block;
+
+    color: var(--color-dorado);
+
+    text-shadow:
+        0 0 24px rgba(243, 199, 95, 0.2),
+        0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.descripcion-oracion {
+    max-width: 38rem;
+    margin: 0 auto;
+
+    color: var(--color-texto);
+
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    line-height: 1.5;
+
+    text-wrap: balance;
+}
+
+
+/* ==================================================
+   CONTENEDOR DE LA ORACIÓN
+================================================== */
+
+.tarjeta-oracion {
+    position: relative;
+
+    width: min(100%, 48rem);
+    margin: 0 auto;
+    padding: clamp(1.8rem, 4vw, 3rem);
+
+    overflow: hidden;
+
+    border: 1px solid rgba(243, 199, 95, 0.48);
+    border-radius: var(--radio-grande);
+
+    background-color: rgba(7, 19, 33, 0.87);
+
+    background-image:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 223, 137, 0.09),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.035),
+            transparent 52%
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.045),
+        0 20px 50px rgba(0, 0, 0, 0.25),
+        0 0 35px rgba(218, 158, 44, 0.06);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.tarjeta-oracion::before,
+.tarjeta-oracion::after {
+    position: absolute;
+
+    color: rgba(243, 199, 95, 0.16);
+
+    font-family: var(--fuente-titulos);
+    font-size: clamp(5rem, 11vw, 8rem);
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+.tarjeta-oracion::before {
+    content: "“";
+
+    top: -0.4rem;
+    left: 1rem;
+}
+
+.tarjeta-oracion::after {
+    content: "”";
+
+    right: 1rem;
+    bottom: -3.4rem;
+}
+
+
+/* ==================================================
+   TEXTO DE LA ORACIÓN
+================================================== */
+
+.texto-oracion {
+    position: relative;
+    z-index: 2;
+
+    max-width: 42rem;
+    margin: 0 auto;
+
+    color: var(--color-blanco);
+
+    font-size: clamp(1.15rem, 2.35vw, 1.55rem);
+    line-height: 1.58;
+    text-align: center;
+
+    text-wrap: balance;
+}
+
+.texto-oracion strong {
+    color: var(--color-dorado-claro);
+    font-weight: 600;
+}
+
+.amen {
+    display: block;
+
+    margin-top: 1rem;
+
+    color: var(--color-dorado);
+
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   INDICACIÓN PARA EL USUARIO
+================================================== */
+
+.indicacion-oracion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+
+    margin: 1.25rem auto 0;
+    padding: 0.55rem 1rem;
+
+    border: 1px solid rgba(243, 199, 95, 0.22);
+    border-radius: var(--radio-redondo);
+
+    color: var(--color-texto-suave);
+    background-color: rgba(3, 9, 20, 0.46);
+
+    font-family: var(--fuente-interfaz);
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+.indicacion-oracion::before {
+    content: "";
+
+    width: 0.45rem;
+    height: 0.45rem;
+
+    border-radius: 50%;
+
+    background-color: var(--color-dorado);
+
+    box-shadow: 0 0 0.8rem rgba(243, 199, 95, 0.7);
+}
+
+
+/* ==================================================
+   BOTÓN INFERIOR
+================================================== */
+
+.boton-confirmar-oracion {
+    margin-top: 1.75rem;
+}
+
+
+/* ==================================================
+   BRILLO INFERIOR
+================================================== */
+
+.brillo-inferior-oracion {
+    position: absolute;
+    z-index: -1;
+
+    bottom: -8rem;
+    left: 50%;
+
+    width: min(92vw, 56rem);
+    height: 18rem;
+
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(255, 213, 108, 0.3),
+        rgba(222, 148, 35, 0.08) 38%,
+        transparent 70%
+    );
+
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   TABLETAS Y PANTALLAS INTERMEDIAS
+================================================== */
+
+@media (max-width: 850px) {
+    .pantalla-oracion {
+        align-items: flex-start;
+
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .contenido-oracion {
+        width: min(100%, 42rem);
+    }
+
+    .tarjeta-oracion {
+        border-radius: 1.6rem;
+    }
+}
+
+
+/* ==================================================
+   TELÉFONOS
+================================================== */
+
+@media (max-width: 600px) {
+    .pantalla-oracion {
+        padding:
+            max(5.5rem, env(safe-area-inset-top))
+            1rem
+            max(3.5rem, env(safe-area-inset-bottom));
+    }
+
+    .luz-superior-oracion {
+        width: 90vw;
+        height: 8rem;
+    }
+
+    .luz-superior-oracion::before {
+        top: -1rem;
+
+        width: 0.21rem;
+        height: 5.2rem;
+    }
+
+    .luz-superior-oracion::after {
+        top: 1rem;
+
+        width: 3.7rem;
+        height: 0.2rem;
+    }
+
+    .cabecera-oracion {
+        margin-bottom: 1.4rem;
+    }
+
+    .cabecera-oracion .etiqueta-seccion {
+        font-size: 0.62rem;
+    }
+
+    .cabecera-oracion h2 {
+        max-width: 22rem;
+
+        font-size: clamp(2.7rem, 13vw, 4rem);
+        line-height: 0.94;
+    }
+
+    .descripcion-oracion {
+        max-width: 21rem;
+
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .tarjeta-oracion {
+        padding: 1.6rem 1.2rem;
+
+        border-radius: 1.3rem;
+    }
+
+    .tarjeta-oracion::before,
+    .tarjeta-oracion::after {
+        font-size: 5rem;
+    }
+
+    .tarjeta-oracion::before {
+        top: -0.3rem;
+        left: 0.55rem;
+    }
+
+    .tarjeta-oracion::after {
+        right: 0.55rem;
+        bottom: -2.6rem;
+    }
+
+    .texto-oracion {
+        font-size: clamp(1rem, 4.5vw, 1.2rem);
+        line-height: 1.52;
+    }
+
+    .indicacion-oracion {
+        margin-top: 1rem;
+
+        font-size: 0.72rem;
+    }
+
+    .boton-confirmar-oracion {
+        margin-top: 1.4rem;
+    }
+}
+
+
+/* ==================================================
+   PANTALLAS MUY ESTRECHAS
+================================================== */
+
+@media (max-width: 370px) {
+    .pantalla-oracion {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .cabecera-oracion h2 {
+        font-size: 2.5rem;
+    }
+
+    .tarjeta-oracion {
+        padding: 1.35rem 1rem;
+    }
+
+    .texto-oracion {
+        font-size: 0.96rem;
+    }
+
+    .indicacion-oracion {
+        padding: 0.45rem 0.75rem;
+
+        font-size: 0.68rem;
+    }
+}

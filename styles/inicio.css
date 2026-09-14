@@ -1,67 +1,6 @@
 /* ==================================================
-   VARIABLES Y CONFIGURACIÓN GENERAL
+   FONDO DE LA PANTALLA INICIAL
 ================================================== */
-
-:root {
-    color-scheme: only dark;
-
-    --azul-profundo: #030914;
-    --azul-medio: #071525;
-    --dorado: #f3c75f;
-    --dorado-claro: #ffe9a0;
-    --blanco: #fffdf8;
-    --texto-suave: #d6d9df;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    min-width: 320px;
-    min-height: 100%;
-    scroll-behavior: smooth;
-    color-scheme: only dark;
-    background-color: #030914;
-}
-
-body {
-    margin: 0;
-    min-width: 320px;
-    min-height: 100vh;
-
-    color: #fffdf8;
-    background-color: #030914;
-
-    font-family: Georgia, "Times New Roman", serif;
-}
-
-button {
-    font: inherit;
-}
-
-
-/* ==================================================
-   CONTENEDOR PRINCIPAL
-================================================== */
-
-.experiencia {
-    min-height: 100vh;
-    min-height: 100dvh;
-
-    color: #fffdf8;
-    background-color: #030914;
-}
-
-.pantalla {
-    position: relative;
-
-    min-height: 100vh;
-    min-height: 100svh;
-
-    overflow: hidden;
-    isolation: isolate;
-}
 
 .pantalla-inicio {
     display: flex;
@@ -73,8 +12,8 @@ button {
         clamp(1.25rem, 5vw, 4rem)
         max(2rem, env(safe-area-inset-bottom));
 
-    color: #fffdf8;
-    background-color: #030914;
+    color: var(--color-blanco);
+    background-color: var(--color-fondo);
 
     background-image:
         radial-gradient(
@@ -113,6 +52,7 @@ button {
     border-radius: 50%;
     opacity: 0.34;
     filter: blur(25px);
+
     pointer-events: none;
 }
 
@@ -165,7 +105,7 @@ button {
    CRUZ SUPERIOR
 ================================================== */
 
-.resplandor {
+.pantalla-inicio .resplandor {
     position: absolute;
     z-index: -1;
 
@@ -176,7 +116,6 @@ button {
     height: 11rem;
 
     transform: translateX(-50%);
-    pointer-events: none;
 
     background: radial-gradient(
         ellipse at 50% 22%,
@@ -189,9 +128,11 @@ button {
     filter: drop-shadow(
         0 0 22px rgba(255, 200, 84, 0.22)
     );
+
+    pointer-events: none;
 }
 
-.resplandor::before {
+.pantalla-inicio .resplandor::before {
     content: "";
     position: absolute;
 
@@ -202,7 +143,7 @@ button {
     height: 8.3rem;
 
     transform: translateX(-50%);
-    border-radius: 999px;
+    border-radius: var(--radio-redondo);
 
     background: linear-gradient(
         90deg,
@@ -219,7 +160,7 @@ button {
         0 0 22px rgba(255, 190, 61, 0.45);
 }
 
-.resplandor::after {
+.pantalla-inicio .resplandor::after {
     content: "";
     position: absolute;
 
@@ -230,7 +171,7 @@ button {
     height: 0.35rem;
 
     transform: translateX(-50%);
-    border-radius: 999px;
+    border-radius: var(--radio-redondo);
 
     background: linear-gradient(
         180deg,
@@ -252,7 +193,7 @@ button {
    ENCABEZADO
 ================================================== */
 
-.encabezado {
+.pantalla-inicio .encabezado {
     position: absolute;
     z-index: 3;
 
@@ -265,19 +206,19 @@ button {
     align-items: flex-start;
 }
 
-.frase {
+.pantalla-inicio .frase {
     margin: 0;
 
     color: rgba(255, 255, 255, 0.82);
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--fuente-interfaz);
     font-size: clamp(0.65rem, 1.4vw, 0.86rem);
     line-height: 1.45;
     letter-spacing: 0.18em;
     text-transform: uppercase;
 }
 
-.frase::after {
+.pantalla-inicio .frase::after {
     content: "";
     display: block;
 
@@ -285,23 +226,23 @@ button {
     height: 1px;
     margin-top: 0.8rem;
 
-    background-color: #f3c75f;
+    background-color: var(--color-dorado);
 }
 
-.frase-derecha {
+.pantalla-inicio .frase-derecha {
     text-align: right;
 }
 
-.frase-derecha::after {
+.pantalla-inicio .frase-derecha::after {
     margin-left: auto;
 }
 
 
 /* ==================================================
-   CONTENIDO CENTRAL
+   CONTENIDO PRINCIPAL
 ================================================== */
 
-.contenido-principal {
+.pantalla-inicio .contenido-principal {
     position: relative;
     z-index: 2;
 
@@ -311,12 +252,13 @@ button {
     text-align: center;
 }
 
-.introduccion {
-    margin: 0 0 1.1rem;
+.pantalla-inicio .introduccion {
+    max-width: 42rem;
+    margin: 0 auto 1.1rem;
 
-    color: #ffe9a0;
+    color: var(--color-dorado-claro);
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--fuente-interfaz);
     font-size: clamp(0.72rem, 1.6vw, 0.95rem);
     font-weight: 700;
     line-height: 1.4;
@@ -324,24 +266,25 @@ button {
     text-transform: uppercase;
 }
 
-h1 {
+.pantalla-inicio h1 {
     max-width: 48rem;
     margin: 0 auto;
 
-    color: #fffdf8;
+    color: var(--color-blanco);
 
     font-size: clamp(2.5rem, 6vw, 4.8rem);
     font-weight: 500;
     line-height: 1;
     letter-spacing: -0.035em;
+
     text-wrap: balance;
 }
 
-h1 span {
+.pantalla-inicio h1 span {
     display: block;
     margin-top: 0.22em;
 
-    color: #f3c75f;
+    color: var(--color-dorado);
     line-height: 1.02;
 
     text-shadow:
@@ -349,120 +292,20 @@ h1 span {
         0 3px 20px rgba(0, 0, 0, 0.55);
 }
 
-.separador {
-    width: 3.5rem;
-    height: 2px;
-    margin: 1.5rem auto;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #f3c75f,
-        transparent
-    );
-}
-
-.descripcion {
+.pantalla-inicio .descripcion {
     max-width: 38rem;
     margin: 0 auto;
 
-    color: #d6d9df;
+    color: var(--color-texto);
 
     font-size: clamp(1rem, 2.1vw, 1.35rem);
     line-height: 1.5;
+
     text-wrap: balance;
 }
 
-
-/* ==================================================
-   BOTÓN PRINCIPAL
-================================================== */
-
-.boton-principal {
-    position: relative;
-
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    width: min(100%, 34rem);
-    min-height: 4.5rem;
-
+.pantalla-inicio .boton-principal {
     margin-top: 2rem;
-    padding: 1rem 4.5rem 1rem 2rem;
-
-    overflow: hidden;
-
-    border: 1px solid rgba(255, 239, 181, 0.9);
-    border-radius: 999px;
-
-    color: #161006;
-    background-color: #f3c75f;
-
-    background-image: linear-gradient(
-        105deg,
-        #d79c2d 0%,
-        #ffe58c 48%,
-        #e6ab37 100%
-    );
-
-    box-shadow:
-        0 0 12px rgba(255, 210, 98, 0.5),
-        0 0 45px rgba(222, 155, 42, 0.25);
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(1rem, 2.1vw, 1.25rem);
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        transform 180ms ease,
-        box-shadow 180ms ease;
-}
-
-.boton-principal::before {
-    content: "";
-    position: absolute;
-
-    top: -100%;
-    left: -35%;
-
-    width: 25%;
-    height: 300%;
-
-    transform: rotate(25deg);
-
-    background-color: rgba(255, 255, 255, 0.55);
-    transition: left 500ms ease;
-}
-
-.boton-principal:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 0 18px rgba(255, 222, 127, 0.75),
-        0 12px 38px rgba(0, 0, 0, 0.38);
-}
-
-.boton-principal:hover::before {
-    left: 120%;
-}
-
-.boton-principal:active {
-    transform: translateY(0);
-}
-
-.boton-principal:focus-visible {
-    outline: 3px solid #ffffff;
-    outline-offset: 4px;
-}
-
-.flecha {
-    position: absolute;
-    right: 2rem;
-    font-size: 1.7rem;
 }
 
 
@@ -534,7 +377,7 @@ h1 span {
         inset 0 0 0 2px rgba(245, 187, 69, 0.25);
 }
 
-.pagina {
+.ilustracion-biblia .pagina {
     position: absolute;
     bottom: 0;
 
@@ -565,7 +408,7 @@ h1 span {
         0 0.6rem 1rem rgba(0, 0, 0, 0.45);
 }
 
-.pagina::before {
+.ilustracion-biblia .pagina::before {
     content: "";
     position: absolute;
 
@@ -596,8 +439,8 @@ h1 span {
     );
 }
 
-.pagina::after {
-    content: "SAGRADA ESCRITURA";
+.ilustracion-biblia .pagina::after {
+    content: "SANTA BIBLIA";
     position: absolute;
 
     top: 10%;
@@ -607,14 +450,14 @@ h1 span {
 
     color: #76521c;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--fuente-titulos);
     font-size: clamp(0.35rem, 0.8vw, 0.55rem);
     font-weight: 700;
     letter-spacing: 0.12em;
     text-align: center;
 }
 
-.pagina-izquierda {
+.ilustracion-biblia .pagina-izquierda {
     left: 0;
 
     transform:
@@ -627,7 +470,7 @@ h1 span {
     border-radius: 12% 2% 3% 18%;
 }
 
-.pagina-derecha {
+.ilustracion-biblia .pagina-derecha {
     right: 0;
 
     transform:
@@ -640,7 +483,7 @@ h1 span {
     border-radius: 2% 12% 18% 3%;
 }
 
-.centro-biblia {
+.ilustracion-biblia .centro-biblia {
     position: absolute;
     z-index: 3;
 
@@ -664,7 +507,7 @@ h1 span {
         0 0 1rem rgba(255, 202, 83, 0.35);
 }
 
-.centro-biblia::after {
+.ilustracion-biblia .centro-biblia::after {
     content: "";
     position: absolute;
 
@@ -697,7 +540,7 @@ h1 span {
    INDICADOR PARA DESLIZAR
 ================================================== */
 
-.indicador-deslizar {
+.pantalla-inicio .indicador-deslizar {
     position: absolute;
     z-index: 4;
 
@@ -710,7 +553,7 @@ h1 span {
     pointer-events: none;
 }
 
-.indicador-deslizar p {
+.pantalla-inicio .indicador-deslizar p {
     margin: 0.35rem 0 0;
 
     color: rgba(255, 255, 255, 0.82);
@@ -719,7 +562,7 @@ h1 span {
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
 }
 
-.chevron {
+.pantalla-inicio .chevron {
     display: block;
 
     width: 0.8rem;
@@ -728,13 +571,13 @@ h1 span {
 
     transform: rotate(45deg);
 
-    border-right: 2px solid #ffe9a0;
-    border-bottom: 2px solid #ffe9a0;
+    border-right: 2px solid var(--color-dorado-claro);
+    border-bottom: 2px solid var(--color-dorado-claro);
 
     animation: bajar 1.7s infinite;
 }
 
-.chevron:nth-child(2) {
+.pantalla-inicio .chevron:nth-child(2) {
     animation-delay: 0.2s;
 }
 
@@ -765,74 +608,62 @@ h1 span {
         padding-bottom: 10rem;
     }
 
-    .encabezado {
+    .pantalla-inicio .encabezado {
         top: 1.25rem;
         left: 1.25rem;
         right: 1.25rem;
-
-        /* No se oculta por la altura del navegador */
-        display: flex;
     }
 
-    .frase {
+    .pantalla-inicio .frase {
         font-size: 0.52rem;
         letter-spacing: 0.14em;
     }
 
-    .resplandor {
+    .pantalla-inicio .resplandor {
         width: 82vw;
         height: 8rem;
     }
 
-    .resplandor::before {
+    .pantalla-inicio .resplandor::before {
         top: -0.2rem;
+
         width: 0.3rem;
         height: 6.2rem;
     }
 
-    .resplandor::after {
+    .pantalla-inicio .resplandor::after {
         top: 1.4rem;
+
         width: 5.5rem;
         height: 0.28rem;
     }
 
-    .contenido-principal {
+    .pantalla-inicio .contenido-principal {
         margin-top: 9.5rem;
         margin-bottom: 9rem;
     }
 
-    .introduccion {
+    .pantalla-inicio .introduccion {
         max-width: 19rem;
-        margin-left: auto;
-        margin-right: auto;
 
         font-size: 0.65rem;
         letter-spacing: 0.11em;
     }
 
-    h1 {
+    .pantalla-inicio h1 {
         max-width: 23rem;
         font-size: clamp(2.2rem, 10.5vw, 3.5rem);
     }
 
-    .descripcion {
+    .pantalla-inicio .descripcion {
         max-width: 22rem;
+
         font-size: 1.02rem;
         line-height: 1.45;
     }
 
-    .boton-principal {
-        min-height: 4rem;
+    .pantalla-inicio .boton-principal {
         margin-top: 1.7rem;
-
-        padding-left: 1.4rem;
-        padding-right: 3.7rem;
-
-        font-size: 1rem;
-    }
-
-    .flecha {
-        right: 1.4rem;
     }
 
     .ilustracion-biblia {
@@ -840,7 +671,7 @@ h1 span {
         bottom: -1.4rem;
     }
 
-    .indicador-deslizar {
+    .pantalla-inicio .indicador-deslizar {
         display: none;
     }
 }
@@ -851,42 +682,23 @@ h1 span {
 ================================================== */
 
 @media (max-width: 370px) {
-    .frase {
+    .pantalla-inicio .frase {
         font-size: 0.46rem;
     }
 
-    .contenido-principal {
+    .pantalla-inicio .contenido-principal {
         margin-top: 8.8rem;
     }
 
-    h1 {
+    .pantalla-inicio h1 {
         font-size: 2.15rem;
     }
 
-    .descripcion {
+    .pantalla-inicio .descripcion {
         font-size: 0.95rem;
     }
 
-    .boton-principal {
-        font-size: 0.9rem;
-    }
-}
-
-
-/* ==================================================
-   ACCESIBILIDAD
-================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    .chevron {
-        animation: none;
-    }
-
-    .boton-principal {
-        transition: none;
+    .ilustracion-biblia {
+        width: 92vw;
     }
 }

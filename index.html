@@ -14,21 +14,33 @@
     >
 
     <meta name="theme-color" content="#030914">
-
-    <!-- Indica que la página ya posee un diseño oscuro -->
     <meta name="color-scheme" content="dark">
     <meta name="supported-color-schemes" content="dark">
 
     <title>Preparados</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/inicio.css">
+    <link rel="stylesheet" href="styles/mensaje.css">
+    <link rel="stylesheet" href="styles/pasos.css">
+    <link rel="stylesheet" href="styles/oracion.css">
+    <link rel="stylesheet" href="styles/formulario.css">
 </head>
 
 <body>
     <main class="experiencia">
 
-        <section class="pantalla pantalla-inicio" id="inicio">
+        <!-- ==========================================
+             1. PANTALLA INICIAL
+        =========================================== -->
 
+        <section
+            class="pantalla pantalla-inicio"
+            id="inicio"
+            data-pantalla="0"
+            aria-labelledby="titulo-inicio"
+        >
             <div class="resplandor" aria-hidden="true"></div>
 
             <header class="encabezado">
@@ -50,7 +62,7 @@
                     Una pregunta que puede cambiar tu vida
                 </p>
 
-                <h1>
+                <h1 id="titulo-inicio">
                     ¿Estás preparado para la
                     <span>segunda venida de Jesús?</span>
                 </h1>
@@ -66,6 +78,7 @@
                     class="boton-principal"
                     id="botonContinuar"
                     type="button"
+                    data-destino="mensaje"
                 >
                     <span>Quiero entender el mensaje</span>
                     <span class="flecha" aria-hidden="true">→</span>
@@ -81,13 +94,753 @@
             <div class="indicador-deslizar" aria-hidden="true">
                 <span class="chevron"></span>
                 <span class="chevron"></span>
-                <p>Desliza para continuar</p>
+                <p>Usa el botón para continuar</p>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             2. MENSAJE DE SALVACIÓN
+        =========================================== -->
+
+        <section
+            class="pantalla pantalla-mensaje"
+            id="mensaje"
+            data-pantalla="1"
+            aria-labelledby="titulo-mensaje"
+        >
+            <div
+                class="luz-superior-segunda"
+                aria-hidden="true"
+            ></div>
+
+            <button
+                class="boton-regresar"
+                type="button"
+                data-destino="inicio"
+                aria-label="Regresar a la pantalla inicial"
+            >
+                <span aria-hidden="true">←</span>
+            </button>
+
+            <div class="contenido-mensaje">
+                <header class="cabecera-mensaje">
+                    <p class="etiqueta-seccion">
+                        El camino comienza aquí
+                    </p>
+
+                    <h2 id="titulo-mensaje">
+                        El mensaje de
+                        <span>salvación</span>
+                    </h2>
+
+                    <div class="separador" aria-hidden="true"></div>
+
+                    <p class="descripcion-mensaje">
+                        Dios quiere salvarte y darte vida eterna.
+                    </p>
+                </header>
+
+                <div class="lista-mensaje">
+
+                    <!-- Dios te ama -->
+
+                    <article class="tarjeta-mensaje">
+                        <div
+                            class="icono-mensaje"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 64 64">
+                                <path
+                                    d="M32 54S9 41 9 23.5C9 14.5 15 9 22.5 9c4.5 0 7.8 2.3 9.5 5.2C33.7 11.3 37 9 41.5 9 49 9 55 14.5 55 23.5 55 41 32 54 32 54Z"
+                                ></path>
+                            </svg>
+                        </div>
+
+                        <div class="texto-tarjeta">
+                            <p class="numero-paso">01</p>
+
+                            <h3>Dios te ama</h3>
+
+                            <p>
+                                Te creó con propósito y desea tener
+                                una relación contigo.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <!-- El pecado nos separa -->
+
+                    <article class="tarjeta-mensaje">
+                        <div
+                            class="icono-mensaje"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 64 64">
+                                <!-- Mitad izquierda -->
+                                <path
+                                    class="forma-corazon-roto"
+                                    d="
+                                        M30 55
+                                        C25 51 10 41 7 28
+                                        C4 16 11 8 21 8
+                                        C27 8 31 11 34 16
+                                        L27 27
+                                        L35 32
+                                        L29 43
+                                        L34 47
+                                        Z
+                                    "
+                                ></path>
+
+                                <!-- Mitad derecha -->
+                                <path
+                                    class="forma-corazon-roto"
+                                    d="
+                                        M34 16
+                                        C37 11 41 8 47 8
+                                        C57 8 64 16 61 28
+                                        C58 41 43 51 34 58
+                                        L30 55
+                                        L34 47
+                                        L29 43
+                                        L35 32
+                                        L27 27
+                                        Z
+                                    "
+                                ></path>
+
+                                <!-- Grieta central -->
+                                <path
+                                    class="grieta-corazon"
+                                    d="M34 16 27 27l8 5-6 11 5 4"
+                                ></path>
+                            </svg>
+                        </div>
+
+                        <div class="texto-tarjeta">
+                            <p class="numero-paso">02</p>
+
+                            <h3>El pecado nos separa</h3>
+
+                            <p>
+                                Todos hemos fallado y necesitamos
+                                el perdón de Dios.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <!-- Jesús murió y resucitó -->
+
+                    <article class="tarjeta-mensaje">
+                        <div
+                            class="icono-mensaje"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 64 64">
+                                <path
+                                    d="M27 8h10v18h17v10H37v20H27V36H10V26h17Z"
+                                ></path>
+                            </svg>
+                        </div>
+
+                        <div class="texto-tarjeta">
+                            <p class="numero-paso">03</p>
+
+                            <h3>Jesús murió y resucitó</h3>
+
+                            <p>
+                                Entregó su vida y pagó el precio
+                                por nuestros pecados.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <!-- Hoy puedes creer -->
+
+                    <article class="tarjeta-mensaje">
+                        <div
+                            class="icono-mensaje"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 64 64">
+                                <!-- Cabeza -->
+                                <circle cx="39" cy="11" r="6"></circle>
+
+                                <!-- Espalda inclinada -->
+                                <path d="M35 22c-7 4-11 11-11 19"></path>
+
+                                <!-- Brazos extendidos -->
+                                <path d="m34 25 9 9"></path>
+                                <path d="m43 34 9-3"></path>
+                                <path d="m49 28 3 3 4 1"></path>
+
+                                <!-- Muslo y pierna arrodillada -->
+                                <path d="M24 40c0 7 5 11 13 11h14"></path>
+                                <path d="M24 40H12"></path>
+
+                                <!-- Pierna apoyada -->
+                                <path d="m37 51-6 7"></path>
+                                <path d="M31 58H13"></path>
+                            </svg>
+                        </div>
+
+                        <div class="texto-tarjeta">
+                            <p class="numero-paso">04</p>
+
+                            <h3>Hoy puedes creer</h3>
+
+                            <p>
+                                Arrepiéntete, confía en Jesús
+                                y recibe su salvación.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <button
+                    class="boton-principal boton-siguiente"
+                    type="button"
+                    data-destino="pasos"
+                >
+                    <span>Quiero dar el siguiente paso</span>
+                    <span class="flecha" aria-hidden="true">→</span>
+                </button>
             </div>
 
+            <div
+                class="brillo-inferior-segunda"
+                aria-hidden="true"
+            ></div>
+        </section>
+
+
+        <!-- ==========================================
+             3. QUÉ DEBES HACER
+        =========================================== -->
+
+        <section
+            class="pantalla pantalla-pasos"
+            id="pasos"
+            data-pantalla="2"
+            aria-labelledby="titulo-pasos"
+        >
+            <div
+                class="luz-superior-pasos"
+                aria-hidden="true"
+            ></div>
+
+            <button
+                class="boton-regresar"
+                type="button"
+                data-destino="mensaje"
+                aria-label="Regresar al mensaje de salvación"
+            >
+                <span aria-hidden="true">←</span>
+            </button>
+
+            <div class="contenido-pasos">
+                <header class="cabecera-pasos">
+                    <p class="etiqueta-seccion">
+                        Una decisión personal
+                    </p>
+
+                    <h2 id="titulo-pasos">
+                        ¿Qué debes
+                        <span>hacer?</span>
+                    </h2>
+
+                    <div class="separador" aria-hidden="true"></div>
+
+                    <p class="descripcion-pasos">
+                        La salvación es por gracia,
+                        mediante la fe en Jesús.
+                    </p>
+                </header>
+
+                <div class="lista-pasos">
+
+                    <!-- Paso 1 -->
+
+                    <article class="paso-fe">
+                        <div class="marca-paso" aria-hidden="true">
+                            <span class="numero-grande">1</span>
+
+                            <span class="icono-paso">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 20S4 15.5 4 9.5A4.5 4.5 0 0 1 12 6.7a4.5 4.5 0 0 1 8 2.8C20 15.5 12 20 12 20Z"
+                                    ></path>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="texto-paso">
+                            <h3>Reconoce tu necesidad</h3>
+
+                            <p>
+                                Acepta que necesitas el perdón
+                                y la salvación de Dios.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <!-- Paso 2 -->
+
+                    <article class="paso-fe">
+                        <div class="marca-paso" aria-hidden="true">
+                            <span class="numero-grande">2</span>
+
+                            <span class="icono-paso">
+                                <svg viewBox="0 0 24 24">
+                                    <!-- Mano izquierda -->
+                                    <path d="M11 21H8c-2.8 0-5-2.2-5-5v-4"></path>
+                                    <path d="M3 12c0-1 .8-1.8 1.8-1.8S6.5 11 6.5 12v2"></path>
+                                    <path d="m6.5 14 3.2-10.2c.3-1 1.7-1.1 2.1-.1"></path>
+
+                                    <!-- Mano derecha -->
+                                    <path d="M13 21h3c2.8 0 5-2.2 5-5v-4"></path>
+                                    <path d="M21 12c0-1-.8-1.8-1.8-1.8S17.5 11 17.5 12v2"></path>
+                                    <path d="m17.5 14-3.2-10.2c-.3-1-1.7-1.1-2.1-.1"></path>
+
+                                    <!-- Unión de las manos -->
+                                    <path d="M12 4v17"></path>
+
+                                    <!-- Destellos -->
+                                    <path d="M5 5 3.5 3.5"></path>
+                                    <path d="M19 5 20.5 3.5"></path>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="texto-paso">
+                            <h3>Arrepiéntete de tus pecados</h3>
+
+                            <p>
+                                Decide apartarte del pecado
+                                y acercarte a Dios.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <!-- Paso 3 -->
+
+                    <article class="paso-fe">
+                        <div class="marca-paso" aria-hidden="true">
+                            <span class="numero-grande">3</span>
+
+                            <span class="icono-paso">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7Z"></path>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="texto-paso">
+                            <h3>Cree en Jesucristo</h3>
+
+                            <p>
+                                Confía en que Jesús murió
+                                y resucitó por ti.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <!-- Paso 4 -->
+
+                    <article class="paso-fe">
+                        <div class="marca-paso" aria-hidden="true">
+                            <span class="numero-grande">4</span>
+
+                            <span class="icono-paso">
+                                <svg viewBox="0 0 24 24">
+                                    <!-- Cabeza -->
+                                    <circle cx="15" cy="4.5" r="2.2"></circle>
+
+                                    <!-- Espalda -->
+                                    <path d="M13.5 8c-3 1.8-4.5 4.5-4.5 8"></path>
+
+                                    <!-- Brazos -->
+                                    <path d="m13 9.5 3.5 3.5"></path>
+                                    <path d="m16.5 13 3-1"></path>
+
+                                    <!-- Pierna flexionada -->
+                                    <path d="M9 15.5c0 2.8 2 4.5 5 4.5h6"></path>
+
+                                    <!-- Rodilla -->
+                                    <path d="M9 15.5H4"></path>
+
+                                    <!-- Base -->
+                                    <path d="M14 20 11.5 22H4"></path>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="texto-paso">
+                            <h3>Entrégale tu vida</h3>
+
+                            <p>
+                                Recibe a Jesús como Salvador
+                                y permite que guíe tu camino.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <button
+                    class="boton-principal boton-orar"
+                    type="button"
+                    data-destino="oracion"
+                >
+                    <span>Estoy listo para orar</span>
+                    <span class="flecha" aria-hidden="true">→</span>
+                </button>
+            </div>
+
+            <div
+                class="brillo-inferior-pasos"
+                aria-hidden="true"
+            ></div>
+        </section>
+
+
+        <!-- ==========================================
+             4. HAZ ESTA ORACIÓN
+        =========================================== -->
+
+        <section
+            class="pantalla pantalla-oracion"
+            id="oracion"
+            data-pantalla="3"
+            aria-labelledby="titulo-oracion"
+        >
+            <div
+                class="luz-superior-oracion"
+                aria-hidden="true"
+            ></div>
+
+            <button
+                class="boton-regresar"
+                type="button"
+                data-destino="pasos"
+                aria-label="Regresar a los pasos anteriores"
+            >
+                <span aria-hidden="true">←</span>
+            </button>
+
+            <div class="contenido-oracion">
+                <header class="cabecera-oracion">
+                    <p class="etiqueta-seccion">
+                        Habla con Dios con sinceridad
+                    </p>
+
+                    <h2 id="titulo-oracion">
+                        Haz esta
+                        <span>oración</span>
+                    </h2>
+
+                    <div class="separador" aria-hidden="true"></div>
+
+                    <p class="descripcion-oracion">
+                        No se trata de repetir palabras,
+                        sino de creerlas de corazón.
+                    </p>
+                </header>
+
+                <div class="tarjeta-oracion">
+                    <p class="texto-oracion">
+                        Señor Jesús, reconozco que soy pecador
+                        y que necesito tu perdón.
+
+                        <strong>
+                            Creo que moriste por mí
+                            y resucitaste.
+                        </strong>
+
+                        Hoy me arrepiento de mis pecados,
+                        te recibo como mi Salvador
+                        y te entrego mi vida.
+
+                        Hazme una nueva persona
+                        y ayúdame a seguirte.
+
+                        <span class="amen">Amén.</span>
+                    </p>
+                </div>
+
+                <p class="indicacion-oracion">
+                    Puedes leerla con calma y hacerla tuya
+                </p>
+
+                <button
+                    class="boton-principal boton-confirmar-oracion"
+                    type="button"
+                    data-destino="formulario"
+                >
+                    <span>He hecho esta oración</span>
+                    <span class="flecha" aria-hidden="true">→</span>
+                </button>
+            </div>
+
+            <div
+                class="brillo-inferior-oracion"
+                aria-hidden="true"
+            ></div>
+        </section>
+
+
+        <!-- ==========================================
+             5. FORMULARIO DE CONTACTO
+        =========================================== -->
+
+        <section
+            class="pantalla pantalla-formulario"
+            id="formulario"
+            data-pantalla="4"
+            aria-labelledby="titulo-formulario"
+        >
+            <div
+                class="luz-superior-formulario"
+                aria-hidden="true"
+            ></div>
+
+            <button
+                class="boton-regresar"
+                type="button"
+                data-destino="oracion"
+                aria-label="Regresar a la oración"
+            >
+                <span aria-hidden="true">←</span>
+            </button>
+
+            <div class="contenido-formulario">
+                <header class="cabecera-formulario">
+                    <p class="etiqueta-seccion">
+                        Nos gustaría acompañarte
+                    </p>
+
+                    <h2 id="titulo-formulario">
+                        Queremos
+                        <span>conocerte</span>
+                    </h2>
+
+                    <div class="separador" aria-hidden="true"></div>
+
+                    <p class="descripcion-formulario">
+                        Si hiciste esta oración o tienes dudas,
+                        déjanos tus datos para comunicarnos contigo.
+                    </p>
+                </header>
+
+                <form
+                    class="tarjeta-formulario"
+                    id="formularioContacto"
+                    novalidate
+                >
+                    <div class="campos-formulario">
+
+                        <!-- Nombre -->
+
+                        <div class="grupo-campo grupo-campo-nombre">
+                            <label for="nombre">
+                                Nombre completo
+                                <span class="campo-obligatorio">*</span>
+                            </label>
+
+                            <div class="contenedor-input">
+                                <svg
+                                    class="icono-campo"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <circle cx="12" cy="8" r="4"></circle>
+                                    <path
+                                        d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"
+                                    ></path>
+                                </svg>
+
+                                <input
+                                    type="text"
+                                    id="nombre"
+                                    name="nombre"
+                                    placeholder="Escribe tu nombre"
+                                    autocomplete="name"
+                                    maxlength="80"
+                                    aria-describedby="errorNombre"
+                                    required
+                                >
+                            </div>
+
+                            <p
+                                class="mensaje-error"
+                                id="errorNombre"
+                            ></p>
+                        </div>
+
+
+                        <!-- Edad -->
+
+                        <div class="grupo-campo grupo-campo-edad">
+                            <label for="edad">
+                                Edad
+                                <span class="campo-obligatorio">*</span>
+                            </label>
+
+                            <div class="contenedor-input">
+                                <svg
+                                    class="icono-campo"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <rect
+                                        x="3"
+                                        y="5"
+                                        width="18"
+                                        height="16"
+                                        rx="2"
+                                    ></rect>
+
+                                    <line x1="8" y1="3" x2="8" y2="7"></line>
+                                    <line x1="16" y1="3" x2="16" y2="7"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+
+                                <input
+                                    type="number"
+                                    id="edad"
+                                    name="edad"
+                                    placeholder="Tu edad"
+                                    inputmode="numeric"
+                                    min="5"
+                                    max="120"
+                                    aria-describedby="errorEdad"
+                                    required
+                                >
+                            </div>
+
+                            <p
+                                class="mensaje-error"
+                                id="errorEdad"
+                            ></p>
+                        </div>
+
+
+                        <!-- Teléfono -->
+
+                        <div class="grupo-campo grupo-campo-telefono">
+                            <label for="telefono">
+                                Número de teléfono
+                                <span class="campo-obligatorio">*</span>
+                            </label>
+
+                            <div class="contenedor-input">
+                                <svg
+                                    class="icono-campo"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M5 4h4l2 5-3 2c1.4 3 3 4.6 6 6l2-3 5 2v4c0 1.1-.9 2-2 2C9.6 22 2 14.4 2 5c0-1.1.9-2 2-2h1Z"
+                                    ></path>
+                                </svg>
+
+                                <input
+                                    type="tel"
+                                    id="telefono"
+                                    name="telefono"
+                                    placeholder="Ej. 5555 5555"
+                                    inputmode="tel"
+                                    autocomplete="tel"
+                                    maxlength="24"
+                                    aria-describedby="errorTelefono"
+                                    required
+                                >
+                            </div>
+
+                            <p
+                                class="mensaje-error"
+                                id="errorTelefono"
+                            ></p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Consentimiento -->
+
+                    
+
+
+                    <!-- Botón de envío -->
+
+                    <button
+                        class="boton-principal boton-enviar"
+                        id="botonEnviar"
+                        type="submit"
+                    >
+                        <span class="texto-normal">
+                            Enviar mis datos
+                        </span>
+
+                        <span class="texto-enviando">
+                            Enviando…
+                        </span>
+
+                        <span
+                            class="indicador-carga"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span class="flecha" aria-hidden="true">→</span>
+                    </button>
+
+                    <p
+                        class="estado-formulario"
+                        id="estadoFormulario"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+                </form>
+
+                <p class="mensaje-privacidad">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect
+                            x="5"
+                            y="10"
+                            width="14"
+                            height="11"
+                            rx="2"
+                        ></rect>
+
+                        <path
+                            d="M8 10V7a4 4 0 0 1 8 0v3"
+                        ></path>
+                    </svg>
+
+                    Tus datos serán utilizados únicamente
+                    para ponerse en contacto contigo.
+                </p>
+            </div>
+
+            <div
+                class="brillo-inferior-formulario"
+                aria-hidden="true"
+            ></div>
         </section>
 
     </main>
 
-    <script src="app.js"></script>
+
+    <!-- Scripts -->
+    <script src="scripts/navegacion.js"></script>
+    <script src="scripts/formulario.js"></script>
 </body>
 </html>

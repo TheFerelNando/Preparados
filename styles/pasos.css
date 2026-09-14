@@ -1,0 +1,680 @@
+/* ==================================================
+   TERCERA PANTALLA: QUÉ DEBES HACER
+================================================== */
+
+.pantalla-pasos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        max(5.5rem, env(safe-area-inset-top))
+        clamp(1.25rem, 4vw, 3rem)
+        max(5rem, env(safe-area-inset-bottom));
+
+    color: var(--color-blanco);
+    background-color: var(--color-fondo);
+
+    background-image:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 218, 121, 0.15),
+            transparent 34%
+        ),
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(231, 161, 45, 0.2),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #061321 0%,
+            #020812 56%,
+            #081522 100%
+        );
+}
+
+
+/* ==================================================
+   DECORACIÓN DEL FONDO
+================================================== */
+
+.pantalla-pasos::before,
+.pantalla-pasos::after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pantalla-pasos::before {
+    top: 20%;
+    left: -13rem;
+
+    width: 26rem;
+    height: 26rem;
+
+    background: radial-gradient(
+        circle,
+        rgba(59, 79, 101, 0.25),
+        transparent 68%
+    );
+
+    filter: blur(18px);
+}
+
+.pantalla-pasos::after {
+    right: -12rem;
+    bottom: 8%;
+
+    width: 25rem;
+    height: 25rem;
+
+    background: radial-gradient(
+        circle,
+        rgba(162, 112, 38, 0.19),
+        transparent 68%
+    );
+
+    filter: blur(20px);
+}
+
+
+/* ==================================================
+   LUZ SUPERIOR
+================================================== */
+
+.luz-superior-pasos {
+    position: absolute;
+    z-index: -1;
+
+    top: 0;
+    left: 50%;
+
+    width: min(88vw, 32rem);
+    height: 11rem;
+
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(255, 246, 205, 0.58),
+        rgba(255, 210, 100, 0.2) 18%,
+        rgba(255, 179, 47, 0.07) 37%,
+        transparent 68%
+    );
+
+    pointer-events: none;
+}
+
+.luz-superior-pasos::before {
+    content: "";
+    position: absolute;
+
+    top: -1.2rem;
+    left: 50%;
+
+    width: 0.25rem;
+    height: 6.8rem;
+
+    transform: translateX(-50%);
+    border-radius: var(--radio-redondo);
+
+    background: linear-gradient(
+        90deg,
+        #ce9830,
+        #fff6c6 44%,
+        #ffffff 50%,
+        #fff6c6 56%,
+        #ce9830
+    );
+
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.9),
+        0 0 16px rgba(255, 210, 101, 0.6);
+}
+
+.luz-superior-pasos::after {
+    content: "";
+    position: absolute;
+
+    top: 1.35rem;
+    left: 50%;
+
+    width: 4.6rem;
+    height: 0.23rem;
+
+    transform: translateX(-50%);
+    border-radius: var(--radio-redondo);
+
+    background: linear-gradient(
+        180deg,
+        #ce9830,
+        #ffffff 50%,
+        #ce9830
+    );
+
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.9),
+        0 0 16px rgba(255, 210, 101, 0.6);
+}
+
+
+/* ==================================================
+   CONTENIDO PRINCIPAL
+================================================== */
+
+.contenido-pasos {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 66rem);
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   CABECERA
+================================================== */
+
+.cabecera-pasos {
+    max-width: 50rem;
+    margin: 0 auto 2.4rem;
+}
+
+.cabecera-pasos h2 {
+    max-width: 46rem;
+    margin: 0 auto;
+
+    color: var(--color-blanco);
+
+    font-size: clamp(3rem, 6vw, 5.3rem);
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+
+    text-wrap: balance;
+}
+
+.cabecera-pasos h2 span {
+    display: block;
+
+    color: var(--color-dorado);
+
+    text-shadow:
+        0 0 24px rgba(243, 199, 95, 0.2),
+        0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.descripcion-pasos {
+    max-width: 38rem;
+    margin: 0 auto;
+
+    color: var(--color-texto);
+
+    font-size: clamp(1.05rem, 2vw, 1.4rem);
+    line-height: 1.5;
+
+    text-wrap: balance;
+}
+
+
+/* ==================================================
+   LISTA DE PASOS
+================================================== */
+
+.lista-pasos {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+
+    width: 100%;
+}
+
+
+/* Línea central en computadora */
+
+.lista-pasos::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    top: 1.5rem;
+    bottom: 1.5rem;
+    left: 50%;
+
+    width: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(243, 199, 95, 0.5) 18%,
+        rgba(243, 199, 95, 0.5) 82%,
+        transparent
+    );
+}
+
+
+/* ==================================================
+   CADA PASO
+================================================== */
+
+.paso-fe {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 1.1rem;
+
+    min-height: 8.5rem;
+    margin: 0;
+    padding: 1.1rem 1.35rem;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(243, 199, 95, 0.38);
+    border-radius: var(--radio-medio);
+
+    background-color: rgba(7, 19, 33, 0.84);
+
+    background-image: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.035),
+        transparent 52%
+    );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.035),
+        0 14px 30px rgba(0, 0, 0, 0.2);
+
+    text-align: left;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        transform var(--transicion-rapida),
+        border-color var(--transicion-rapida),
+        box-shadow var(--transicion-rapida);
+}
+
+.paso-fe:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(255, 224, 143, 0.7);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 18px 36px rgba(0, 0, 0, 0.28),
+        0 0 24px rgba(218, 158, 44, 0.08);
+}
+
+.paso-fe::after {
+    content: "";
+    position: absolute;
+
+    right: -2.5rem;
+    bottom: -2.5rem;
+
+    width: 7rem;
+    height: 7rem;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(243, 199, 95, 0.08),
+        transparent 68%
+    );
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   NÚMERO E ÍCONO
+================================================== */
+
+.marca-paso {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    width: clamp(4.6rem, 8vw, 5.5rem);
+    aspect-ratio: 1;
+
+    border: 1px solid rgba(255, 222, 137, 0.7);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 216, 111, 0.12),
+        transparent 68%
+    );
+
+    box-shadow:
+        inset 0 0 1.2rem rgba(255, 203, 82, 0.07),
+        0 0 1.2rem rgba(255, 194, 62, 0.07);
+}
+
+.numero-grande {
+    color: var(--color-dorado-claro);
+
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1;
+}
+
+.icono-paso {
+    position: absolute;
+
+    right: -0.4rem;
+    bottom: -0.2rem;
+
+    display: grid;
+    place-items: center;
+
+    width: 2rem;
+    height: 2rem;
+
+    border: 1px solid rgba(255, 224, 143, 0.68);
+    border-radius: 50%;
+
+    color: var(--color-fondo);
+    background-color: var(--color-dorado);
+}
+
+.icono-paso svg {
+    width: 58%;
+    height: 58%;
+}
+
+.icono-paso svg path,
+.icono-paso svg circle,
+.icono-paso svg line {
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ==================================================
+   TEXTO DE CADA PASO
+================================================== */
+
+.texto-paso {
+    min-width: 0;
+}
+
+.texto-paso h3 {
+    margin: 0 0 0.4rem;
+
+    color: var(--color-dorado-claro);
+
+    font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.15;
+
+    text-wrap: balance;
+}
+
+.texto-paso p {
+    margin: 0;
+
+    color: var(--color-texto-suave);
+
+    font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+    line-height: 1.4;
+}
+
+
+/* ==================================================
+   BOTÓN INFERIOR
+================================================== */
+
+.boton-orar {
+    margin-top: 2rem;
+}
+
+
+/* ==================================================
+   BRILLO INFERIOR
+================================================== */
+
+.brillo-inferior-pasos {
+    position: absolute;
+    z-index: -1;
+
+    bottom: -8rem;
+    left: 50%;
+
+    width: min(92vw, 54rem);
+    height: 17rem;
+
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(255, 211, 105, 0.28),
+        rgba(222, 148, 35, 0.08) 38%,
+        transparent 70%
+    );
+
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   TABLETAS Y PANTALLAS INTERMEDIAS
+================================================== */
+
+@media (max-width: 850px) {
+    .pantalla-pasos {
+        align-items: flex-start;
+
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .contenido-pasos {
+        width: min(100%, 38rem);
+    }
+
+    .lista-pasos {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .lista-pasos::before {
+        top: 2rem;
+        bottom: 2rem;
+        left: 2.75rem;
+    }
+
+    .paso-fe {
+        min-height: 7.8rem;
+    }
+}
+
+
+/* ==================================================
+   TELÉFONOS
+================================================== */
+
+@media (max-width: 600px) {
+    .pantalla-pasos {
+        padding:
+            max(5.5rem, env(safe-area-inset-top))
+            1rem
+            max(3.5rem, env(safe-area-inset-bottom));
+    }
+
+    .luz-superior-pasos {
+        width: 88vw;
+        height: 8rem;
+    }
+
+    .luz-superior-pasos::before {
+        top: -1rem;
+
+        width: 0.21rem;
+        height: 5.2rem;
+    }
+
+    .luz-superior-pasos::after {
+        top: 1rem;
+
+        width: 3.7rem;
+        height: 0.2rem;
+    }
+
+    .cabecera-pasos {
+        margin-bottom: 1.5rem;
+    }
+
+    .cabecera-pasos .etiqueta-seccion {
+        font-size: 0.62rem;
+    }
+
+    .cabecera-pasos h2 {
+        max-width: 22rem;
+
+        font-size: clamp(2.7rem, 13vw, 4rem);
+        line-height: 0.94;
+    }
+
+    .descripcion-pasos {
+        max-width: 21rem;
+
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .lista-pasos {
+        gap: 0.75rem;
+    }
+
+    .lista-pasos::before {
+        left: 2.8rem;
+    }
+
+    .paso-fe {
+        grid-template-columns: 3.8rem minmax(0, 1fr);
+        gap: 0.9rem;
+
+        min-height: 7.2rem;
+        padding: 0.9rem 1rem;
+
+        border-radius: 1rem;
+    }
+
+    .marca-paso {
+        width: 3.8rem;
+    }
+
+    .numero-grande {
+        font-size: 2rem;
+    }
+
+    .icono-paso {
+        right: -0.25rem;
+        bottom: -0.15rem;
+
+        width: 1.55rem;
+        height: 1.55rem;
+    }
+
+    .texto-paso h3 {
+        margin-bottom: 0.3rem;
+
+        font-size: clamp(1.1rem, 5vw, 1.35rem);
+    }
+
+    .texto-paso p {
+        font-size: 0.88rem;
+        line-height: 1.35;
+    }
+
+    .boton-orar {
+        margin-top: 1.4rem;
+    }
+}
+
+
+/* ==================================================
+   PANTALLAS MUY ESTRECHAS
+================================================== */
+
+@media (max-width: 370px) {
+    .pantalla-pasos {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .cabecera-pasos h2 {
+        font-size: 2.5rem;
+    }
+
+    .lista-pasos::before {
+        left: 2.45rem;
+    }
+
+    .paso-fe {
+        grid-template-columns: 3.3rem minmax(0, 1fr);
+        gap: 0.75rem;
+
+        padding: 0.85rem;
+    }
+
+    .marca-paso {
+        width: 3.3rem;
+    }
+
+    .numero-grande {
+        font-size: 1.75rem;
+    }
+
+    .texto-paso h3 {
+        font-size: 1.05rem;
+    }
+
+    .texto-paso p {
+        font-size: 0.82rem;
+    }
+}
+
+/* ==================================================
+   AJUSTE DE ÍCONOS DE LOS PASOS 2 Y 4
+================================================== */
+
+.paso-fe:nth-child(2) .icono-paso svg,
+.paso-fe:nth-child(4) .icono-paso svg {
+    width: 68%;
+    height: 68%;
+}
+
+.paso-fe:nth-child(2) .icono-paso svg path,
+.paso-fe:nth-child(4) .icono-paso svg path {
+    stroke-width: 2.3;
+}
+
+.paso-fe:nth-child(4) .icono-paso svg circle {
+    fill: currentColor;
+    stroke: none;
+}
