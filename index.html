@@ -14,21 +14,31 @@
     >
 
     <meta name="theme-color" content="#030914">
-
-    <!-- Indica que la página ya posee un diseño oscuro -->
     <meta name="color-scheme" content="dark">
     <meta name="supported-color-schemes" content="dark">
 
     <title>Preparados</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/inicio.css">
+    <link rel="stylesheet" href="styles/mensaje.css">
+    <link rel="stylesheet" href="styles/pasos.css">
+    <link rel="stylesheet" href="styles/oracion.css">
+    <link rel="stylesheet" href="styles/formulario.css">
 </head>
 
 <body>
     <main class="experiencia">
 
-        <section class="pantalla pantalla-inicio" id="inicio">
+        <!-- =====================================
+             PRIMERA PANTALLA
+        ====================================== -->
 
+        <section
+            class="pantalla pantalla-inicio"
+            id="inicio"
+            aria-labelledby="titulo-inicio"
+        >
             <div class="resplandor" aria-hidden="true"></div>
 
             <header class="encabezado">
@@ -50,7 +60,7 @@
                     Una pregunta que puede cambiar tu vida
                 </p>
 
-                <h1>
+                <h1 id="titulo-inicio">
                     ¿Estás preparado para la
                     <span>segunda venida de Jesús?</span>
                 </h1>
@@ -66,6 +76,7 @@
                     class="boton-principal"
                     id="botonContinuar"
                     type="button"
+                    data-destino="mensaje"
                 >
                     <span>Quiero entender el mensaje</span>
                     <span class="flecha" aria-hidden="true">→</span>
@@ -83,11 +94,216 @@
                 <span class="chevron"></span>
                 <p>Desliza para continuar</p>
             </div>
+        </section>
 
+
+        <!-- =====================================
+             SEGUNDA PANTALLA
+        ====================================== -->
+
+        <section
+            class="pantalla pantalla-mensaje"
+            id="mensaje"
+            aria-labelledby="titulo-mensaje"
+        >
+            <div
+                class="luz-superior-segunda"
+                aria-hidden="true"
+            ></div>
+
+            <button
+                class="boton-regresar"
+                type="button"
+                data-destino="inicio"
+                aria-label="Regresar a la pantalla anterior"
+            >
+                <span aria-hidden="true">←</span>
+            </button>
+
+            <div class="contenido-mensaje">
+                <header class="cabecera-mensaje">
+                    <p class="etiqueta-seccion">
+                        El camino comienza aquí
+                    </p>
+
+                    <h2 id="titulo-mensaje">
+                        El mensaje de
+                        <span>salvación</span>
+                    </h2>
+
+                    <div class="separador" aria-hidden="true"></div>
+
+                    <p class="descripcion-mensaje">
+                        Dios quiere salvarte y darte vida eterna.
+                    </p>
+                </header>
+
+
+                <!-- Tarjetas del mensaje -->
+
+                <div class="lista-mensaje">
+
+                    <article class="tarjeta-mensaje">
+                        <div
+                            class="icono-mensaje"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 64 64">
+                                <path
+                                    d="M32 54S9 41 9 23.5C9 14.5 15 9 22.5 9c4.5 0 7.8 2.3 9.5 5.2C33.7 11.3 37 9 41.5 9 49 9 55 14.5 55 23.5 55 41 32 54 32 54Z"
+                                />
+                            </svg>
+                        </div>
+
+                        <div class="texto-tarjeta">
+                            <p class="numero-paso">01</p>
+
+                            <h3>Dios te ama</h3>
+
+                            <p>
+                                Te creó con propósito y desea tener
+                                una relación contigo.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="tarjeta-mensaje">
+                        <div
+                            class="icono-mensaje"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 64 64">
+                                <path
+                                    d="M31 54S9 41 9 23.5C9 14.5 15 9 22.5 9c4.2 0 7.5 2.1 9.2 5"
+                                />
+
+                                <path
+                                    d="M34 14c1.8-2.9 5-5 9.2-5C50.5 9 56 14.5 56 23.5 56 41 34 54 34 54"
+                                />
+
+                                <path
+                                    class="linea-interior"
+                                    d="M35 13 27 26l10 5-9 13"
+                                />
+                            </svg>
+                        </div>
+
+                        <div class="texto-tarjeta">
+                            <p class="numero-paso">02</p>
+
+                            <h3>El pecado nos separa</h3>
+
+                            <p>
+                                Todos hemos fallado y necesitamos
+                                el perdón de Dios.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="tarjeta-mensaje">
+                        <div
+                            class="icono-mensaje"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 64 64">
+                                <path
+                                    d="M27 8h10v18h17v10H37v20H27V36H10V26h17Z"
+                                />
+                            </svg>
+                        </div>
+
+                        <div class="texto-tarjeta">
+                            <p class="numero-paso">03</p>
+
+                            <h3>Jesús murió y resucitó</h3>
+
+                            <p>
+                                Entregó su vida y pagó el precio
+                                por nuestros pecados.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="tarjeta-mensaje">
+                        <div
+                            class="icono-mensaje"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 64 64">
+                                <circle cx="39" cy="13" r="7"></circle>
+
+                                <path
+                                    class="linea-interior"
+                                    d="M34 23c-6 5-9 12-9 20v3"
+                                />
+
+                                <path
+                                    class="linea-interior"
+                                    d="M31 29 42 39"
+                                />
+
+                                <path
+                                    class="linea-interior"
+                                    d="M25 45H13"
+                                />
+
+                                <path
+                                    class="linea-interior"
+                                    d="M21 55h25"
+                                />
+
+                                <path
+                                    class="linea-interior"
+                                    d="M25 45c0 6 4 10 10 10"
+                                />
+                            </svg>
+                        </div>
+
+                        <div class="texto-tarjeta">
+                            <p class="numero-paso">04</p>
+
+                            <h3>Hoy puedes creer</h3>
+
+                            <p>
+                                Arrepiéntete, confía en Jesús
+                                y recibe su salvación.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <button
+                    class="boton-principal boton-siguiente"
+                    id="botonSiguiente"
+                    type="button"
+                >
+                    <span>Quiero dar el siguiente paso</span>
+                    <span class="flecha" aria-hidden="true">→</span>
+                </button>
+
+                <p
+                    class="mensaje-proximamente"
+                    id="mensajeProximamente"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+            </div>
+
+
+            <div
+                class="brillo-inferior-segunda"
+                aria-hidden="true"
+            ></div>
         </section>
 
     </main>
 
-    <script src="app.js"></script>
+    <script src="scripts/navegacion.js"></script>
+    <script src="scripts/formulario.js"></script>
 </body>
 </html>
