@@ -2,15 +2,88 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Un mensaje de esperanza y salvación para hoy."
+    >
+
+    <meta name="theme-color" content="#071321">
 
     <title>Preparados</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <main>
-        <h1>Preparados</h1>
-        <p>Estamos preparando un mensaje de esperanza para ti.</p>
+    <main class="experiencia">
+
+        <!-- Primera pantalla -->
+        <section class="pantalla pantalla-inicio" id="inicio">
+
+            <div class="resplandor" aria-hidden="true"></div>
+
+            <header class="encabezado">
+                <p class="frase frase-izquierda">
+                    Misma Biblia<br>
+                    Misma esperanza<br>
+                    Siempre
+                </p>
+
+                <p class="frase frase-derecha">
+                    Un mensaje<br>
+                    de esperanza<br>
+                    para hoy
+                </p>
+            </header>
+
+            <div class="contenido-principal">
+                <p class="introduccion">
+                    Una pregunta que puede cambiar tu vida
+                </p>
+
+                <h1>
+                    ¿Estás preparado para la
+                    <span>segunda venida de Jesús?</span>
+                </h1>
+
+                <div class="separador" aria-hidden="true"></div>
+
+                <p class="descripcion">
+                    La Biblia nos llama a estar listos.
+                    Hoy puedes conocer el camino de salvación.
+                </p>
+
+                <button class="boton-principal" id="botonContinuar" type="button">
+                    <span>Quiero entender el mensaje</span>
+
+                    <span class="flecha" aria-hidden="true">
+                        →
+                    </span>
+                </button>
+            </div>
+
+            <div class="ilustracion-biblia" aria-hidden="true">
+                <div class="pagina pagina-izquierda"></div>
+                <div class="pagina pagina-derecha"></div>
+                <div class="centro-biblia"></div>
+            </div>
+
+            <div class="indicador-deslizar" aria-hidden="true">
+                <span class="chevron"></span>
+                <span class="chevron"></span>
+                <p>Desliza para continuar</p>
+            </div>
+
+        </section>
+
     </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
