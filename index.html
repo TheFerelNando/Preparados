@@ -5,7 +5,7 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     >
 
     <meta
@@ -13,7 +13,11 @@
         content="Un mensaje de esperanza y salvación para hoy."
     >
 
-    <meta name="theme-color" content="#071321">
+    <meta name="theme-color" content="#030914">
+
+    <!-- Indica que la página ya posee un diseño oscuro -->
+    <meta name="color-scheme" content="dark">
+    <meta name="supported-color-schemes" content="dark">
 
     <title>Preparados</title>
 
@@ -23,7 +27,6 @@
 <body>
     <main class="experiencia">
 
-        <!-- Primera pantalla -->
         <section class="pantalla pantalla-inicio" id="inicio">
 
             <div class="resplandor" aria-hidden="true"></div>
@@ -59,12 +62,13 @@
                     Hoy puedes conocer el camino de salvación.
                 </p>
 
-                <button class="boton-principal" id="botonContinuar" type="button">
+                <button
+                    class="boton-principal"
+                    id="botonContinuar"
+                    type="button"
+                >
                     <span>Quiero entender el mensaje</span>
-
-                    <span class="flecha" aria-hidden="true">
-                        →
-                    </span>
+                    <span class="flecha" aria-hidden="true">→</span>
                 </button>
             </div>
 
